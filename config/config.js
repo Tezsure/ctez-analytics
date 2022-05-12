@@ -13,6 +13,11 @@ module.exports = {
     Deposit_DATA: "data/Main_Transaction/Deposit_data.json",
     Withdraw_DATA: "data/Main_Transaction/Withdraw_data.json",
     Oven_DATA: "data/Ovens/Ovens_data.json",
+    Oven_Graph_DATA: "data/Ovens/Ovens_Graph_data.json",
+    Summary_DATA: "data/Ovens/Summary_data.json",
     Drift_DATA: "data/Main_Data/Drift_Data.json",
     Target_DATA_One: "data/Main_Data/TargetOne_data.json",
+    Tvl_DATA: "data/Tvl_Data/Tvl_data.json",
+    Volume_DATA: "data/Volume_Data/Volume_data.json",
+    Price_DATA: "data/Price_Data/Price_data.json",
 }

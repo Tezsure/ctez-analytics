@@ -86,29 +86,33 @@ app.get('/main_data/target', (req, res)=>{
   const data = fs.readFileSync(config.Target_DATA_One);
   res.json(JSON.parse(data));
 })
-  // app.get("/tokens_statistical_data", async function (req, res) {
-  //   const data = fs.readFileSync(config.TOKEN_PAGE_STATISTICAL_DATA);
-  //   res.json(JSON.parse(data));
-  // });
-  // app.get("/tokens_price_scatter", async function (req, res) {
-  //   const data = fs.readFileSync(config.TOKEN_PAGE_PRICE_GRAPH_DATA);
-  //   res.json(JSON.parse(data));
-  // });
-  // app.get("/liquidity", async function (req, res) {
-  //   const data = fs.readFileSync(config.LIQUIDITY_PAGE_DATA);
-  //   res.json(JSON.parse(data));
-  // });
-  // app.get("/data", async function (req, res) {
-  //   const data = fs.readFileSync(config.TOKEN_PAGE_STATISTICAL_DATA);
-  //   res.json(JSON.parse(data));
-  // });
-  // app.get("/datachange", async function (req, res) {
-  //   const data = fs.readFileSync(config.TOKEN_PAGE_PRICE_GRAPH_DATA);
-  //   res.json(JSON.parse(data));
-  // });
-  // app.get("/dataliquidity", async function (req, res) {
-  //   const data = fs.readFileSync(config.LIQUIDITY_PAGE_DATA);
-  //   res.json(JSON.parse(data));
-  // });
+
+app.get('/tvl', (req, res)=>{
+  const data = fs.readFileSync(config.Tvl_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/volume_stats', (req, res)=>{
+  const data = fs.readFileSync(config.Volume_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/ovens_graph', (req, res)=>{
+  const data = fs.readFileSync(config.Oven_Graph_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/summary', (req, res)=>{
+  const data = fs.readFileSync(config.Summary_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/price_stats', (req, res)=>{
+  const data = fs.readFileSync(config.Price_DATA);
+  res.json(JSON.parse(data));
+})
+
+
   app.listen(config.PORT);
+  
 }
