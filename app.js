@@ -36,9 +36,7 @@ if (cluster.isMaster) {
     res.header("Access-Control-Allow-Credentials", true);
     next();
   });
-app.get('/', (req, res)=>{
-   res.send("Hello")
-})
+  
 app.get('/amm_transaction/swap', (req, res)=>{
   const data = fs.readFileSync(config.Swap_DATA);
   res.json(JSON.parse(data));

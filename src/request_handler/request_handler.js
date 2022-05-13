@@ -8,18 +8,18 @@ const startPriceDataHandler = require("./price");
 
 module.exports.startRequestHandler = () => {
     console.log("Hey");
-    // startTokenDataHandler();
-    // startOvenDataHandler();
-    // startMainDataHandler();
-    // startTvlDataHandler();
-    // startVolumeDataHandler();
-    // startPriceDataHandler();
-    // setInterval(() => {
-    //     startTokenDataHandler();
-    //     startOvenDataHandler();
-    //     startMainDataHandler();
-    //     startTvlDataHandler();
-    //     startVolumeDataHandler();
-    //     startPriceDataHandler();
-    // }, config.SET_TIMEOUT);
+    startTokenDataHandler();
+    startOvenDataHandler();
+    startMainDataHandler();
+    startTvlDataHandler();
+    startVolumeDataHandler();
+    startPriceDataHandler();
+    setInterval(() => {
+        startTokenDataHandler();
+        startOvenDataHandler();
+        startMainDataHandler();
+        startTvlDataHandler();
+        startVolumeDataHandler();
+        startPriceDataHandler();
+    }, config.SET_TIMEOUT);
 };
