@@ -8,7 +8,9 @@ module.exports = function startMainDataHandler() {
   request(`${config.GRAPHQL_API}/v1/graphql`, queryMainData).then(
     async (data) => {
       drift_data = filterDriftData(data.mainDataRegularize);
+      // console.log("hey", data);
       target_data = filterTargetData(data.mainDataRegularize);
+      // console.log(target_data);
       fs.writeFileSync(config.Drift_DATA, JSON.stringify(drift_data));
       fs.writeFileSync(config.Target_DATA_One, JSON.stringify(target_data));
     }
@@ -30,11 +32,12 @@ module.exports = function startMainDataHandler() {
 
   function filterTargetData(data) {
     let target = [];
+    // console.log(data);
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;
-        obj.current_price = data[i].current_price;
-        obj.current_target = data[i].current_target;
+        obj.current_price = data[i].currentPrice;
+        obj.current_target = data[i].currentTarget;
         obj.premium = data[i].premium;
         obj.timestamp = data[i].timestamp;
         target.push(obj);
