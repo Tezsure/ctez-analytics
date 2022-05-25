@@ -16,8 +16,13 @@ module.exports = {
     Oven_Graph_DATA: "data/Ovens/Ovens_Graph_data.json",
     Summary_DATA: "data/Ovens/Summary_data.json",
     Drift_DATA: "data/Main_Data/Drift_Data.json",
+    Drift_DATA_All: "data/Main_Data/Drift_Data_All.json",
     Target_DATA_One: "data/Main_Data/TargetOne_data.json",
+    Target_DATA_One_All: "data/Main_Data/TargetOne_data_All.json",
     Tvl_DATA: "data/Tvl_Data/Tvl_data.json",
+    Tvl_DATA_All: "data/Tvl_Data/Tvl_data_All.json",
     Volume_DATA: "data/Volume_Data/Volume_data.json",
+    Volume_DATA_Months: "data/Volume_Data/Volume_data_months.json",
     Price_DATA: "data/Price_Data/Price_data.json",
+    Price_DATA_ALL: "data/Price_Data/Price_data_all.json",
 }

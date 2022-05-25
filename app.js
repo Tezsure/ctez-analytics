@@ -80,8 +80,18 @@ app.get('/main_data/drift', (req, res)=>{
   res.json(JSON.parse(data));
 })
 
+app.get('/main_data/drift_all', (req, res)=>{
+  const data = fs.readFileSync(config.Drift_DATA_All);
+  res.json(JSON.parse(data));
+})
+
 app.get('/main_data/target', (req, res)=>{
   const data = fs.readFileSync(config.Target_DATA_One);
+  res.json(JSON.parse(data));
+})
+
+app.get('/main_data/target_all', (req, res)=>{
+  const data = fs.readFileSync(config.Target_DATA_One_All);
   res.json(JSON.parse(data));
 })
 
@@ -90,8 +100,18 @@ app.get('/tvl', (req, res)=>{
   res.json(JSON.parse(data));
 })
 
+app.get('/tvl_all', (req, res)=>{
+  const data = fs.readFileSync(config.Tvl_DATA_All);
+  res.json(JSON.parse(data));
+})
+
 app.get('/volume_stats', (req, res)=>{
   const data = fs.readFileSync(config.Volume_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/volume_stats_month', (req, res)=>{
+  const data = fs.readFileSync(config.Volume_DATA_Months);
   res.json(JSON.parse(data));
 })
 
@@ -107,6 +127,11 @@ app.get('/summary', (req, res)=>{
 
 app.get('/price_stats', (req, res)=>{
   const data = fs.readFileSync(config.Price_DATA);
+  res.json(JSON.parse(data));
+})
+
+app.get('/price_stats_all', (req, res)=>{
+  const data = fs.readFileSync(config.Price_DATA_ALL);
   res.json(JSON.parse(data));
 })
 

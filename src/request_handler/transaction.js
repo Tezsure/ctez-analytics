@@ -17,7 +17,7 @@ module.exports = function startTokenDataHandler() {
   request(`${config.GRAPHQL_API}/v1/graphql`, querySwapData).then(
     async (data) => {
       // console.log(data);
-      fs.writeFileSync(config.Swap_DATA, JSON.stringify(data));
+      fs.writeFileSync(config.Swap_DATA, JSON.stringify(data.trade));
     }
   ).catch((err) => {
     console.log(err);
@@ -28,7 +28,7 @@ module.exports = function startTokenDataHandler() {
   request(`${config.GRAPHQL_API}/v1/graphql`, queryAddLiquidityData).then(
     async (data) => {
       // console.log(data);
-      fs.writeFileSync(config.AddLiquidity_DATA, JSON.stringify(data));
+      fs.writeFileSync(config.AddLiquidity_DATA, JSON.stringify(data.position));
     }
   ).catch((err) => {
     console.log(err);
@@ -39,7 +39,7 @@ module.exports = function startTokenDataHandler() {
   request(`${config.GRAPHQL_API}/v1/graphql`, queryRemoveLiquidityData).then(
     async (data) => {
       // console.log(data);
-      fs.writeFileSync(config.RemoveLiquidity_DATA, JSON.stringify(data));
+      fs.writeFileSync(config.RemoveLiquidity_DATA, JSON.stringify(data.position));
     }
   ).catch((err) => {
     console.log(err);
@@ -52,7 +52,7 @@ module.exports = function startTokenDataHandler() {
     request(`${config.GRAPHQL_API}/v1/graphql`, queryMintData).then(
       async (data) => {
         // console.log(data);
-        fs.writeFileSync(config.Mint_DATA, JSON.stringify(data));
+        fs.writeFileSync(config.Mint_DATA, JSON.stringify(data.mintBurnData));
       }
     ).catch((err) => {
       console.log(err);
@@ -63,7 +63,7 @@ module.exports = function startTokenDataHandler() {
     request(`${config.GRAPHQL_API}/v1/graphql`, queryBurnData).then(
       async (data) => {
         // console.log(data);
-        fs.writeFileSync(config.Burn_DATA, JSON.stringify(data));
+        fs.writeFileSync(config.Burn_DATA, JSON.stringify(data.mintBurnData));
       }
     ).catch((err) => {
       console.log(err);
@@ -74,7 +74,7 @@ module.exports = function startTokenDataHandler() {
     request(`${config.GRAPHQL_API}/v1/graphql`, queryDepositData).then(
       async (data) => {
         // console.log(data);
-        fs.writeFileSync(config.Deposit_DATA, JSON.stringify(data));
+        fs.writeFileSync(config.Deposit_DATA, JSON.stringify(data.depositWithdrawData));
       }
     ).catch((err) => {
       console.log(err);
@@ -85,7 +85,7 @@ module.exports = function startTokenDataHandler() {
     request(`${config.GRAPHQL_API}/v1/graphql`, queryWithdrawData).then(
       async (data) => {
         // console.log(data);
-        fs.writeFileSync(config.Withdraw_DATA, JSON.stringify(data));
+        fs.writeFileSync(config.Withdraw_DATA, JSON.stringify(data.depositWithdrawData));
       }
     ).catch((err) => {
       console.log(err);

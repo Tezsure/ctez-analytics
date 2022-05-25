@@ -33,7 +33,7 @@ module.exports = function startOvenDataHandler() {
 
   request(`${config.GRAPHQL_API}/v1/graphql`, queryOven_Graph_Data).then(
     async (data) => {
-      fs.writeFileSync(config.Oven_Graph_DATA, JSON.stringify(data));
+      fs.writeFileSync(config.Oven_Graph_DATA, JSON.stringify(data.ovendata));
     }
   ).catch((err) => {
     console.log(err);
