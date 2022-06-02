@@ -2,7 +2,7 @@ const gql = require("graphql-request").gql;
 
 module.exports = queryMainData = (date) => gql`
 {
-    mainDataRegularize(distinct_on: timestamp, limit: 100, order_by: {timestamp: desc}
+    mainDataRegularize(distinct_on: timestamp, order_by: {timestamp: desc}
       where: {
         timestamp: {
           _gte: "${new Date(date).toUTCString()}"

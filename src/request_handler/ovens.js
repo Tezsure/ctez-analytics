@@ -33,7 +33,9 @@ module.exports = function startOvenDataHandler() {
 
   request(`${config.GRAPHQL_API}/v1/graphql`, queryOven_Graph_Data).then(
     async (data) => {
-      fs.writeFileSync(config.Oven_Graph_DATA, JSON.stringify(data.ovendata));
+      data = formatDataGraph(data.ovendata)
+      console.log(data.length);
+      fs.writeFileSync(config.Oven_Graph_DATA, JSON.stringify(data));
     }
   ).catch((err) => {
     console.log(err);
@@ -41,6 +43,7 @@ module.exports = function startOvenDataHandler() {
 
   function formatData(data) {
     let total_ovens = 0;
+    console.log(data.ovendata.length)
     for(let i = 0; i<data.ovendata.length; i++){
       if(data.ovendata[i].ctezStanding>0){total_ovens++;}
     }
@@ -64,6 +67,35 @@ module.exports = function startOvenDataHandler() {
       total_ovens: total_ovens,
       TVL: data.tvlData[0].tvl,
     }
+
+  }
+
+  function formatDataGraph(data){
+    let total = 0;
+    let graphData = [];
+    for(let i = 0; i<data.length; i++){
+      total+=(data[i].ctezStanding)
+    }
+    for(let i = 0; i<25; i++){
+      let obj = {};
+      obj.ctez_standing = data[i].ctezStanding;
+      obj.oven_address = data[i].ovenAddress;
+      let value = (data[i].ctezStanding/total)*100
+      obj.percentage = value.toFixed(2);
+      graphData.push(obj);
+    }
+    let others = 0;
+    for(let i = 25; i<data.length; i++){
+        others+=data[i].ctezStanding;
+    }
+    let obj_others = {};
+      obj_others.ctez_standing = others;
+      obj_others.oven_address = "Others";
+      let value = (others/total)*100
+      obj_others.percentage = value.toFixed(2);
+      graphData.push(obj_others);
+
+      return graphData
 
   }
 

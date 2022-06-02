@@ -9,7 +9,6 @@ module.exports = function startTvlDataHandler() {
   const date = new Date(new Date() - 30 * 24 * 60 * 60 * 1000);
   request(`${config.GRAPHQL_API}/v1/graphql`, queryTvlData(date)).then(
     async (data) => {
-        // console.log(data);
         fs.writeFileSync(config.Tvl_DATA, JSON.stringify(data.tvlData));
     }
   ).catch((err) => {
@@ -18,7 +17,6 @@ module.exports = function startTvlDataHandler() {
 
   request(`${config.GRAPHQL_API}/v1/graphql`, queryTvlDataAll).then(
     async (data) => {
-        // console.log(data);
         fs.writeFileSync(config.Tvl_DATA_All, JSON.stringify(data.tvlDataMonthly));
     }
   ).catch((err) => {

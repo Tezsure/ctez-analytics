@@ -2,13 +2,10 @@ const gql = require("graphql-request").gql;
 
 module.exports = queryOvenData = gql`
 {
-  ovendata(distinct_on: timestamp, order_by: {timestamp: desc}) {
+  ovendata(order_by: {ctezStanding: desc}) {
     ctezStanding
     id
-    liquidation
     ovenAddress
-    tezStanding
-    timestamp
   }
   supply {
     id

@@ -21,7 +21,6 @@ module.exports = function startMainDataHandler() {
 
   request(`${config.GRAPHQL_API}/v1/graphql`, queryMainDataAll).then(
     async (data) => {
-      // console.log(data);
       drift_data = filterDriftDataAll(data.mainDataRegularizeMonthly);
       target_data = filterTargetDataAll(data.mainDataRegularizeMonthly);
       fs.writeFileSync(config.Drift_DATA_All, JSON.stringify(drift_data));
@@ -44,13 +43,11 @@ module.exports = function startMainDataHandler() {
   }
 
   function filterDriftDataAll(data) {
-    // console.log(data);
     let drift = [];
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;
         obj.drift = data[i].currentAnnualDrift;
-        // console.log(data[i])
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
         drift.push(obj);
@@ -59,9 +56,7 @@ module.exports = function startMainDataHandler() {
   }
 
   function filterTargetData(data) {
-    // console.log("hey", data);
     let target = [];
-    // console.log(data);
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;
@@ -76,7 +71,6 @@ module.exports = function startMainDataHandler() {
 
   function filterTargetDataAll(data) {
     let target = [];
-    // console.log(data);
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;

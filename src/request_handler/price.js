@@ -26,10 +26,8 @@ module.exports = function startPriceDataHandler() {
   });
 
   function formatData(data) {
-    // console.log(data);
     let prices = [];
     for(let i = 0; i<data.length; i++){
-      // tez = 1/data[i].price;
       let obj = {};
       obj.ctez_price = data[i].ctezPrice;
       obj.tez_price = data[i].tezPrice.toFixed(5);
