@@ -7,7 +7,6 @@ const startVolumeDataHandler = require("./volume");
 const startPriceDataHandler = require("./price");
 
 module.exports.startRequestHandler = () => {
-    console.log("Hey");
     startTokenDataHandler();
     startOvenDataHandler();
     startMainDataHandler();

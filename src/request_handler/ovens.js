@@ -34,7 +34,6 @@ module.exports = function startOvenDataHandler() {
   request(`${config.GRAPHQL_API}/v1/graphql`, queryOven_Graph_Data).then(
     async (data) => {
       data = formatDataGraph(data.ovendata)
-      console.log(data.length);
       fs.writeFileSync(config.Oven_Graph_DATA, JSON.stringify(data));
     }
   ).catch((err) => {
@@ -43,7 +42,6 @@ module.exports = function startOvenDataHandler() {
 
   function formatData(data) {
     let total_ovens = 0;
-    console.log(data.ovendata.length)
     for(let i = 0; i<data.ovendata.length; i++){
       if(data.ovendata[i].ctezStanding>0){total_ovens++;}
     }
@@ -89,7 +87,7 @@ module.exports = function startOvenDataHandler() {
         others+=data[i].ctezStanding;
     }
     let obj_others = {};
-      obj_others.ctez_standing = others;
+      obj_others.ctez_standing = others.toFixed(5);
       obj_others.oven_address = "Others";
       let value = (others/total)*100
       obj_others.percentage = value.toFixed(2);
