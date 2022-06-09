@@ -4,7 +4,6 @@ const startOvenDataHandler = require("./ovens");
 const startMainDataHandler = require("./main_data");
 const startTvlDataHandler = require("./tvl");
 const startVolumeDataHandler = require("./volume");
-const startPriceDataHandler = require("./price");
 
 module.exports.startRequestHandler = () => {
     startTokenDataHandler();
@@ -19,6 +18,5 @@ module.exports.startRequestHandler = () => {
         startMainDataHandler();
         startTvlDataHandler();
         startVolumeDataHandler();
-        startPriceDataHandler();
     }, config.SET_TIMEOUT);
 };

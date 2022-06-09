@@ -125,17 +125,6 @@ app.get('/summary', (req, res)=>{
   res.json(JSON.parse(data));
 })
 
-app.get('/price_stats', (req, res)=>{
-  const data = fs.readFileSync(config.Price_DATA);
-  res.json(JSON.parse(data));
-})
-
-app.get('/price_stats_all', (req, res)=>{
-  const data = fs.readFileSync(config.Price_DATA_ALL);
-  res.json(JSON.parse(data));
-})
-
-
   app.listen(config.PORT);
   
 }

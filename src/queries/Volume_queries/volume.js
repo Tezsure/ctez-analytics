@@ -10,9 +10,10 @@ module.exports = queryVolumeData = (date) => gql`
       }
       
       ) {
-        sellVolume
-        buyVolume
-        timestamp
+        epochTimestamp
         volume24hours
+        tokenSymbol
+        timestamp
+        id
       }
 }`

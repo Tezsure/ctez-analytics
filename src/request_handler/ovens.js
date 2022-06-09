@@ -49,7 +49,7 @@ module.exports = function startOvenDataHandler() {
       total_ovens: total_ovens,
       created_ovens: data.ovendata.length,
       liquidated_ovens: data.ovensLiquidated.length,
-      TVL: data.tvlData[0].tvl,
+      TVL: data.tvlData[0].ovenTvl,
       total_supply: data.supply[0].totalSupply,
       collateral_supply: data.tezOven[0].collateralSupply
     }
@@ -63,7 +63,8 @@ module.exports = function startOvenDataHandler() {
     }
     return {
       total_ovens: total_ovens,
-      TVL: data.tvlData[0].tvl,
+      TVL: data.tvlData[0].ovenTvl,
+      Amm_TVL: data.tvlData[0].ammTvl
     }
 
   }

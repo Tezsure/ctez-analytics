@@ -37,6 +37,7 @@ module.exports = function startMainDataHandler() {
         obj.id = data[i].id;
         obj.drift = data[i].currentAnnualDrift;
         obj.timestamp = data[i].timestamp;
+        obj.epoch_timestamp = data[i].epochTimestamp;
         drift.push(obj);
     }
     return drift;
@@ -50,6 +51,8 @@ module.exports = function startMainDataHandler() {
         obj.drift = data[i].currentAnnualDrift;
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
+        obj.epoch_timestamp_from = data[i].epochTimestampFrom;
+        obj.epoch_timestamp_to = data[i].epochTimestampTo;
         drift.push(obj);
     }
     return drift;
@@ -62,8 +65,10 @@ module.exports = function startMainDataHandler() {
         obj.id = data[i].id;
         obj.current_price = data[i].currentPrice;
         obj.current_target = data[i].currentTarget;
-        obj.premium = data[i].premium;
+        let premium = data[i].premium*100;
+        obj.premium = premium.toFixed(2);
         obj.timestamp = data[i].timestamp;
+        obj.epoch_timestamp = data[i].epochTimestamp;
         target.push(obj);
     }
     return target;
@@ -76,9 +81,12 @@ module.exports = function startMainDataHandler() {
         obj.id = data[i].id;
         obj.current_price = data[i].currentPrice;
         obj.current_target = data[i].currentTarget;
-        obj.premium = data[i].premium;
+        let premium = data[i].premium*100;
+        obj.premium = premium.toFixed(2);
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
+        obj.epoch_timestamp_from = data[i].epochTimestampFrom;
+        obj.epoch_timestamp_to = data[i].epochTimestampTo;
         target.push(obj);
     }
     return target;

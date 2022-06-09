@@ -12,6 +12,7 @@ module.exports = queryMainData = (date) => gql`
         currentAnnualDrift
         currentPrice
         currentTarget
+        epochTimestamp
         id
         premium
         timestamp

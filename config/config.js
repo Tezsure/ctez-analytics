@@ -23,6 +23,4 @@ module.exports = {
     Tvl_DATA_All: "data/Tvl_Data/Tvl_data_All.json",
     Volume_DATA: "data/Volume_Data/Volume_data.json",
     Volume_DATA_Months: "data/Volume_Data/Volume_data_months.json",
-    Price_DATA: "data/Price_Data/Price_data.json",
-    Price_DATA_ALL: "data/Price_Data/Price_data_all.json",
 }

@@ -9,8 +9,10 @@ module.exports = queryTvlData = (date) => gql`
         }
       }
       ) {
+        ovenTvl
+        epochTimestamp
         timestamp
-        tvl
+        ammTvl
         id
       }
 }`

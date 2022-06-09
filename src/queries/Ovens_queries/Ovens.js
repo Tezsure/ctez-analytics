@@ -20,7 +20,8 @@ module.exports = queryOvenData = gql`
         id
       }
       tvlData(distinct_on: timestamp, order_by: {timestamp: desc}, limit: 1) {
-        tvl
+        ovenTvl
+        epochTimestamp
         timestamp
       }
 }`
