@@ -11,7 +11,6 @@ module.exports.startRequestHandler = () => {
     startMainDataHandler();
     startTvlDataHandler();
     startVolumeDataHandler();
-    startPriceDataHandler();
     setInterval(() => {
         startTokenDataHandler();
         startOvenDataHandler();

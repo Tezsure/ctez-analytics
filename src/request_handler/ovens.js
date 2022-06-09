@@ -62,9 +62,9 @@ module.exports = function startOvenDataHandler() {
       if(data.ovendata[i].ctezStanding>0){total_ovens++;}
     }
     return {
-      total_ovens: total_ovens,
-      TVL: data.tvlData[0].ovenTvl,
-      Amm_TVL: data.tvlData[0].ammTvl
+      Total_Ovens: total_ovens,
+      Total_TVL: data.tvlData[0].ovenTvl + data.tvlData[0].ammTvl,
+      Total_AMM : 1
     }
 
   }
