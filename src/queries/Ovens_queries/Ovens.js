@@ -7,21 +7,17 @@ module.exports = queryOvenData = gql`
     id
     ovenAddress
   }
-  supply {
-    id
-    totalSupply
+  tezOven(order_by: {timestamp: desc}, distinct_on: timestamp, limit: 1) {
+    collateralSupply
+    ctezInAllOvens
+    tezInAllOvens
+    timestamp
   }
-      tezOven(distinct_on: timestamp, order_by: {timestamp: desc}, limit: 1) {
-        id
-        collateralSupply
-        timestamp
-      }
       ovensLiquidated {
         id
       }
-      tvlData(distinct_on: timestamp, order_by: {timestamp: desc}, limit: 1) {
-        ovenTvl
-        epochTimestamp
+      mainData(order_by: {timestamp: desc}, distinct_on: timestamp, limit: 1) {
+        currentPrice
         timestamp
       }
 }`

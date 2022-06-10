@@ -35,7 +35,7 @@ module.exports = function startMainDataHandler() {
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;
-        obj.drift = data[i].currentAnnualDrift;
+        obj.drift = data[i].currentAnnualDrift*100;
         obj.timestamp = data[i].timestamp;
         obj.epoch_timestamp = data[i].epochTimestamp;
         drift.push(obj);
@@ -48,7 +48,7 @@ module.exports = function startMainDataHandler() {
     for(let i = 0; i<data.length; i++){
         let obj = {};
         obj.id = data[i].id;
-        obj.drift = data[i].currentAnnualDrift;
+        obj.drift = data[i].currentAnnualDrift*100;
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
         obj.epoch_timestamp_from = data[i].epochTimestampFrom;

@@ -45,13 +45,15 @@ module.exports = function startOvenDataHandler() {
     for(let i = 0; i<data.ovendata.length; i++){
       if(data.ovendata[i].ctezStanding>0){total_ovens++;}
     }
+    let collateral = ((data.tezOven[0].collateralSupply)/(data.mainData[0].currentPrice))
+    // console.log(data);
     return {
       total_ovens: total_ovens,
       created_ovens: data.ovendata.length,
       liquidated_ovens: data.ovensLiquidated.length,
-      TVL: data.tvlData[0].ovenTvl,
-      total_supply: data.supply[0].totalSupply,
-      collateral_supply: data.tezOven[0].collateralSupply
+      collateral_locked : data.tezOven[0].tezInAllOvens,
+      total_debt : data.tezOven[0].ctezInAllOvens,
+      collateral_ratio: collateral.toFixed(6)
     }
 
   }
