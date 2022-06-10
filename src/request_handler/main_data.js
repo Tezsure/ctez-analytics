@@ -51,8 +51,8 @@ module.exports = function startMainDataHandler() {
         obj.drift = data[i].currentAnnualDrift*100;
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
-        obj.epoch_timestamp_from = data[i].epochTimestampFrom;
-        obj.epoch_timestamp_to = data[i].epochTimestampTo;
+        obj.epoch_timestamp_from = new Date(data[i].timestampFrom).getTime();
+        obj.epoch_timestamp_to = new Date(data[i].timestampTo).getTime();
         drift.push(obj);
     }
     return drift;
@@ -85,8 +85,8 @@ module.exports = function startMainDataHandler() {
         obj.premium = premium.toFixed(2);
         obj.timestamp_from = data[i].timestampFrom;
         obj.timestamp_to = data[i].timestampTo;
-        obj.epoch_timestamp_from = data[i].epochTimestampFrom;
-        obj.epoch_timestamp_to = data[i].epochTimestampTo;
+        obj.epoch_timestamp_from = new Date(data[i].timestampFrom).getTime();
+        obj.epoch_timestamp_to = new Date(data[i].timestampTo).getTime();
         target.push(obj);
     }
     return target;
