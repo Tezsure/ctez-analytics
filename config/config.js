@@ -1,5 +1,5 @@
 module.exports = {
-    GRAPHQL_API: 'http://13.234.125.143/',
+    GRAPHQL_API: 'http://13.234.15.148/',
     // SERVERLESS_API: 'https://w0sujgfj39.execute-api.us-east-2.amazonaws.com',
     PORT: 8000,
     SET_TIMEOUT: 1000 * 60 * 5,
